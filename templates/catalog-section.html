@@ -1,0 +1,712 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>Cooperative Children's Center {{ now.strftime("%Y") }} Auction Catalog</title>
+<script type='text/javascript' src='jquery-2.0.0.min.js'></script>
+<script type='text/javascript' src='FTColumnflow.js'></script>
+<style>
+/*! normalize.css v2.1.1 | MIT License | git.io/normalize */
+
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined in IE 8/9.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+
+/**
+ * Correct `inline-block` display not defined in IE 8/9.
+ */
+
+audio,
+canvas,
+video {
+    display: inline-block;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+
+[hidden] {
+    display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/**
+ * 1. Prevent system color scheme's background color being used in Firefox, IE,
+ *    and Opera.
+ * 2. Prevent system color scheme's text color being used in Firefox, IE, and
+ *    Opera.
+ * 3. Set default font family to sans-serif.
+ * 4. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+    background: #fff; /* 1 */
+    color: #000; /* 2 */
+    font-family: sans-serif; /* 3 */
+    -ms-text-size-adjust: 100%; /* 4 */
+    -webkit-text-size-adjust: 100%; /* 4 */
+}
+
+/**
+ * Remove default margin.
+ */
+
+body {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+
+a:focus {
+    outline: thin dotted;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari 5, and Chrome.
+ */
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9, Safari 5, and Chrome.
+ */
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ */
+
+b,
+strong {
+    font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+
+dfn {
+    font-style: italic;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+/**
+ * Correct font family set oddly in Safari 5 and Chrome.
+ */
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    font-size: 1em;
+}
+
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+
+pre {
+    white-space: pre-wrap;
+}
+
+/**
+ * Set consistent quote types.
+ */
+
+q {
+    quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+    font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+
+/**
+ * Remove border when inside `a` element in IE 8/9.
+ */
+
+img {
+    border: 0;
+}
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 8/9 and Safari 5.
+ */
+
+figure {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+
+legend {
+    border: 0; /* 1 */
+    padding: 0; /* 2 */
+}
+
+/**
+ * 1. Correct font family not being inherited in all browsers.
+ * 2. Correct font size not being inherited in all browsers.
+ * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ */
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit; /* 1 */
+    font-size: 100%; /* 2 */
+    margin: 0; /* 3 */
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+button,
+input {
+    line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+
+button,
+select {
+    text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button; /* 2 */
+    cursor: pointer; /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to `content-box` in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+
+textarea {
+    overflow: auto; /* 1 */
+    vertical-align: top; /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   Custom Catalog CSS
+   ========================================================================== */
+
+body, html { background: #fff; }
+
+body {
+	margin: 1in;
+	padding:0;
+	font-family: 'Helvetica Neue', sans-serif;
+	font-size: 100%;
+	line-height: 1.5;
+	color: #222;
+}
+
+body,
+#viewport,
+body > section#section-{{ section.key }},
+.auction-section-header {
+	width: 9.25in;
+}
+
+.cf-render-area .cf-page,
+#viewport,
+body > section#section-{{ section.key }} {
+	height: 13.5in;
+	background: #fff;
+}
+
+body > footer {
+	border-top: 1px solid #444;
+	text-align:center;
+}
+
+p {
+	margin: 0 0 1em 0;
+}
+
+.auction-section-header {
+	position:absolute;
+	background: #f2f2f2;
+	border-top: 3px solid #000;
+	padding: 5px 0;
+	margin: 0;
+	text-transform:uppercase;
+	letter-spacing: .2em;
+	page-break-inside: avoid;
+}
+
+.auction-section-header h2 {
+	float: left;
+	width: 48%;
+	margin: 0 0 0 3px;
+	padding: 0;
+	line-height: 1;
+	font-family: 'Gill Sans', sans-serif;
+	font-weight: 400;
+}
+
+.auction-section-header-B h2 {
+	font-size: 1.2em;
+}
+
+.auction-section-header p {
+	float: right;
+	width: 48%;
+	text-align: right;
+	margin: 4px 3px 0 0;
+	padding: 0;
+	line-height: 1;
+	font-family: 'Baskerville', serif;
+	color: #444;
+}
+
+.auction-section-header-B p {
+	margin-top: 2px;
+}
+
+#section-items-data {
+	display: none;
+}
+
+/*.items {
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    -moz-column-gap: 30px;
+    -webkit-column-gap: 20px;
+}*/
+
+.item {
+
+	position:relative;
+	padding-bottom:1.5em;
+}
+
+.item section,
+.item footer {	
+	padding-left: 50px;
+}
+
+.item section {
+	font-size: 1.1em;
+	font-family: 'Baskerville', serif;
+}
+
+.item footer {
+	font-family: 'Gill Sans', sans-serif;
+}
+
+.item .item-number,
+.item .item-name {
+	font-size: 1.2em;
+	font-family: 'Gill Sans', sans-serif;
+}
+
+.item .item-name {
+	margin:0;
+	padding-left:50px;
+}
+
+.item .item-number {
+	margin:0;
+	position:absolute;
+	top:0px;
+	left:0px;
+	font-weight: bold;
+}
+
+.item .item-description p:last-child {
+	margin-bottom: 0;
+}
+
+.item .item-value,
+.item .item-restrictions,
+.item .item-donated-by,
+.item .item-expires { 
+	font-style: italic; 
+}
+
+.item-footer {
+	padding:5px 3px;
+}
+
+.item-footer .item-donated-by {
+	float: left;
+	width: 68%;
+}
+
+.item-footer .item-value {
+	float: right;
+	width: 28%;
+	text-align: right;
+}
+
+.cf-render-area .cf-page {
+	page-break-after: always;
+	page-break-inside: avoid;
+}
+
+.cf-render-area .cf-page header {
+}
+
+.cf-column article:last-child {
+	padding-bottom: 0;
+}
+
+@media print {
+	body {
+		margin:0;
+	}
+	@page { 
+		margin: 1in;
+	}
+	#viewport {
+		height: auto;
+	}
+	.cf-render-area .cf-page {
+		display: block;
+		page-break-after: always;
+		page-break-inside: avoid;		
+	}
+	.page-break {
+		display:block;  
+    	page-break-before:always;		
+	}
+}
+
+</style>
+<!--<h1>Cooperative Children's Center {{ now.strftime("%Y") }} Auction Catalog</h1>-->
+
+<div id="section-{{ section.key }}" class="auction-section">
+	<div id="viewport">
+		<div id="target">
+		</div>
+	</div>
+</div>
+
+	<div id="section-items-data">
+	{% for item in section.auction_items %}
+		<article id="item-{{ item.ItemNum }}" class="item nowrap">
+			<header class="item-header nowrap">
+				<h1 class="item-number">{{ item.ItemNum }}</h1>
+				<h2 class="item-name">{{ item.ItemName }}</h2>			
+			</header>
+			<section class="nowrap">
+				<div class="item-description">{{ item.ItemDesc|nl2br }}</div>
+				{% if item.Restrictions %}
+				<div class="item-restrictions">{{ item.Restrictions }}</div>
+				{% endif %}
+				{% if item.ExpirationDate %}
+				<div class="item-expires">Expires {{ item.ExpirationDate|replace(' 0:00:00','') }}</div>
+				{% endif %}
+			</section>
+			<footer class="item-footer nowrap clearfix">
+				<div class="item-donated-by">{{ item.Donors }}</div>
+				{% if item.Priceless == '1' %}
+				<div class="item-value">Priceless</div>
+				{% else %}
+				{% if item.VALUE %}
+				<div class="item-value">{{ item.VALUE }}</div>
+				{% endif %}
+				{% endif %}				
+			</footer>
+			<!--
+			{{ item }}
+			-->	
+		</article>
+	{% endfor %}
+	</div>
+
+<script>
+var cf = new FTColumnflow('target', 'viewport', {   
+	pageArrangement: 'vertical',
+	columnCount: 2,
+	columnGap: 40,
+	columnFragmentMinHeight: 20,
+	standardiseLineHeight: true,
+	pagePadding: 40
+});
+
+cf.flow(document.getElementById('section-items-data'));
+
+$(document).ready(function() {
+	var new_page_header = $('<header class="auction-section-header auction-section-header-{{ section.key }}"><h2>{{ section.label }}</h2><p>Closes at {{ section.closes }} PM</p></header>');	
+	$('.cf-render-area .cf-page').prepend(new_page_header);
+	//$('.cf-render-area .cf-page').append('<div class="page-break"></div>');
+
+	/*
+	var i = 0;	
+	$('.cf-render-area .cf-page').each(function() {
+		var page_offset = $(this).offset();
+		var header_height = new_page_header.height()+40.0;
+		$('.auction-section-header', this).css('height',new_page_header.height());		
+		if (i != 0) {			
+			$(this).css('top', page_offset.top+header_height);
+			$('.auction-section-header', this).css('top',0);		
+		} else {
+			$('.auction-section-header', this).css('top',0);
+		}
+		$('.cf-column', this).each(function() {
+			var column_offest = $(this).offset();
+			$(this).css('top',0+header_height);
+		});
+		i++;
+	});
+	*/
+	$('.cf-column article:last-child').each(function() {
+		$(this).css('padding-bottom', 0);
+	});
+});
+
+</script>
