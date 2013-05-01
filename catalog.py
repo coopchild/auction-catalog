@@ -79,7 +79,7 @@ def nl2br(eval_ctx, value):
     if eval_ctx.autoescape:
         result = Markup(result)
     return result     
-        
+
 def render_certs_to_html(certs):
     data = {}
     data['now'] = datetime.datetime.now()
@@ -112,7 +112,12 @@ def build_catalog(rows, sectionize=True):
     rows = []
     # remove duplicate TrackingNumber
     for row in sorted_rows:
-        if row['TrackingNumber'] not in ItemNums:
+        if row['TrackingNumber'] not in ItemNums:           
+            # clean up character issues
+            row['ItemDesc'] = row['ItemDesc'].replace(u"\r\n- ",u"\r\n\u2022 ")
+            row['ItemDesc'] = row['ItemDesc'].replace(u"\r\n \x95",u"\r\n\u2022")
+            row['ItemDesc'] = row['ItemDesc'].replace(u"\x95",u"\u2022")
+            row['ItemDesc'] = row['ItemDesc'].replace(u"\x92",u"'")
             ItemNums.append(row['TrackingNumber'])
             rows.append(row)
     
