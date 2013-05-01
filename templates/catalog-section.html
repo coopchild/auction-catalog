@@ -669,11 +669,16 @@ p {
 	</div>
 
 <script>
+
+$('.item-name, .item-description p, .item-restrictions').each(function() {
+	$(this).html($(this).html().replace(/\s([^\s<]{0,10})\s*$/,'&nbsp;$1'));
+});
+
 var cf = new FTColumnflow('target', 'viewport', {   
 	pageArrangement: 'vertical',
 	columnCount: 2,
 	columnGap: 40,
-	columnFragmentMinHeight: 20,
+	columnFragmentMinHeight: 15,
 	standardiseLineHeight: true,
 	pagePadding: 40
 });
